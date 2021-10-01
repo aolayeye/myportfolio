@@ -1,0 +1,76 @@
+---
+title: "Amazon_Vine_Review_Statistical_Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r}
+options("scipen"=100, "digits"=7)
+```
+
+
+```{r}
+library(dplyr) # loading required library
+library(tidyverse)
+```
+
+
+Reading data file
+
+```{r}
+vine_table_df <- read.csv(file='vine_review_test.csv',check.names=F,stringsAsFactors = F)
+```
+
+
+
+```{r}
+helpful_votes_df <- 
+```
+
+
+
+To determine if the average 5-star rating for paid reviews is is statistically different from the average 5-star rating for unpaid reviews, we would compare the means of both populations
+
+create a sample dataset using dplyr's sample_n()function
+#randomly sample 50 data points
+
+
+```{r}
+sample_table <- vine_table_df %>% sample_n(50)
+head(sample_table)
+```
+
+
+Qualitative Test for Normality
+
+#import dataset into ggplot2
+
+
+
+```{r}
+plt <- ggplot(sample_table,aes(x=helpful_votes))
+```
+
+
+
+Qualitative Test for Normality
+#visualize distribution using density plot
+
+
+```{r}
+plt + geom_density()
+```
+
+
+```{r}
+t.test(subset(vine_table_df$helpful_votes,vine_table_df$star_rating==5 && vine_table_df$vine=='Y'),mu=mean, subset(vine_table_df$helpful_votes,vine_table_df$star_rating==5 && vine_table_df$vine=='N'))
+```
+
+
