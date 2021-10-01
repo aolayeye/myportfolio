@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap/Bootswatch CSS -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+  <!-- <link rel="shortcut icon" href="/static/favicon.png"> -->
+
+  <title>Scraping Mars | Oluwaseyi Olayeye</title>
+  
+</head>
+<body>
+  <!-- navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top p-1">
+    <div class="container">
+      <a class="navbar-brand" href="/">Oluwaseyi Olayeye</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a id="about-me" class="nav-link" href="../index.html">About</a>
+          </li>
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link " href="/topics">Toolkit</a> -->
+          <!-- </li> -->
+          <li class="nav-item">
+            <a class="nav-link " href="../data_portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/music">Music</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:ayo.olayeye@outlook.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="github" href="https://github.com/aolayeye" target="_blank">
+              <img src="https://img.icons8.com/fluency/48/000000/github.png" alt="github"></a>  
+            </li>
+            <li class="nav-item">
+              <a class="linkedin" href="https://www.linkedin.com/in/vanessa-van-gilder/" target="_blank">
+              <img src="https://img.icons8.com/fluency/48/000000/linkedin.png" alt="LinkedIn"></a> 
+            </li>
+        </ul>
+    </div>
+    </div>
+  </nav>
+  <script>
+  if (document.location.hash==='#about'){
+      document.querySelector('#about-me').classList.add('active');
+    }
+  </script>
+  <!-- header -->
+  <div class="container">
+    <div class="jumbotron text-center py-2 my-2">
+      <h3>Scraping Mars</h3>
+      <p class="lead my-0"><strong>Web App to Scrape Various Sites for Mars Data</strong><p>
+      <p class="my-0"><em></em></p>
+    </div>
+  </div><!-- /header -->
+
+  
+<div class="container">
+  <p class="lead mt-3">This web application scrapes <a href="https://mars.nasa.gov/news/" target="_blank">NASA Mars News</a>, 
+    <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars" target="_blank">JPL Mars Images</a>, 
+    <a href="https://space-facts.com/mars/" target="_blank">Space Facts</a>, 
+    <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" target="_blank">USGS Astrogeology Science Center</a>, 
+    and the <a href="https://twitter.com/marswxreport?lang=en" target="_blank">Mars Weather</a> Twitter account to get data for the Mission to Mars and displays it in a single html page. Clicking the <em>Scrape New Data</em> will do exactly that and update the page. I've attached a screenshot below to show what it looks like. <a href="https://github.com/VanessaVanG/Mission_to_Mars-Web_Scraping" target="_blank">All of my code is here</a>.</p>
+  
+<img src="../Web_scraping_Mars.png" class="img-fluid" alt="Scraping Mars Screenshot">
+
+</div><!-- /container -->
+
+
+  <!-- footer -->
+  <nav class="navbar navbar-dark bg-dark p-1 mt-5">
+    <p class="mx-auto py-0">©2021 Oluwaseyi Olayeye</p>
+  </nav>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

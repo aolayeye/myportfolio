@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mission to Mars</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head> -->
+
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap/Bootswatch CSS -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+
+    <title>Mission to Mars</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  </head>
+
+
+
+  <body>
+    <div class="container">
+      <!-- Add Jumbotron to Header -->
+      <div class="jumbotron text-center text-white">
+        <h1>Mission to Mars</h1>
+        <!-- Add a button to activate scraping script -->
+        <p><a class="btn btn-info btn-lg mt-3" href="/scrape" role="button">Scrape New Data</a></p>
+        <p class="lead mt-3 text-white">This web application scrapes <a href="https://mars.nasa.gov/news/" target="_blank">NASA Mars News</a>, 
+          <a href="https://spaceimages-mars.com/" target="_blank">Space Images</a>, 
+          <a href="https://galaxyfacts-mars.com/" target="_blank">Mars Facts</a>, and
+          <a href="https://marshemispheres.com/" 
+          target="_blank">Mars Hemispheres</a>, and displays it in a single html page. 
+          Clicking the <em>Scrape New Data</em> will scrape the latest data and update the page.</p>
+      </div>
+
+      <!-- Add section for Mars News -->
+      <div class="row" id="mars-news">
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body text-white">
+              <h2>Latest Mars News</h2>
+              <h4 class="media-heading">{{ mars.news_title }}</h4>
+              <p>{{ mars.news_paragraph }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+
+      <!-- Section for Featured Image and Facts table -->
+      <div class="col-md-6" id="mars-featured-image">
+        <div class="card border-secondary">
+          <div class="img-thumbnail">
+          <div class="card-body badge-primary text-white">
+          <h2 class="card-title">Featured Mars Image</h2>
+
+          <!-- if images is False/None/non-existent, then default to error message -->
+          <a href="{{mars.featured_image | default('static/images/error.png', true) }}" class="thumbnail">
+          <img
+            src="{{mars.featured_image | default('static/images/error.png', true) }}" class="img-fluid" alt="Featured Mars Image"
+            />
+          </a>
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="col md-12">
+      
+        <!-- Mars Facts -->
+        
+        <div class="row" id="mars-facts">
+          <div class="card" style="width: 30rem;">
+          <div class="card border-secondary">
+            <div class="card-body badge-primary text-white">
+          <h2 class="card-title">Mars Facts</h2>
+          <h2 class="card-title">Comparing Mars and Earth</h2>
+          <p class="card-text">{{ mars.facts | safe }}</p>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+  <div class="row justify-content-center">
+
+      <!-- Section for Mars Hemispheres -->
+      <div class="col-md-12" id="mars-hemispheres">
+          <h2 class="text-center mt-4 text-white">Mars Hemispheres</h2>
+      </div>
+
+        {% for hemisphere in mars.hemispheres %}
+        <div class="col-md-4 card border secondary m-3">
+          <div class="img-thumbnail">
+            <a href="{{hemisphere.img_url | default('static/images/error.png', true)}}" class="thumbnail">
+            <img class="card-img-top" src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="{{ hemisphere.title }}">
+            <div class="card-body badge-primary text-white">
+              <h3 class="card-title text-center">{{hemisphere.title}}</h3>
+            </div>
+          </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
