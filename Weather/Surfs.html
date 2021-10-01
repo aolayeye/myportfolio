@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- Bootstrap/Bootswatch CSS -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+  <!-- <link rel="shortcut icon" href="/static/favicon.png"> -->
+
+  <title>Weather Data Analysis | Oluwaseyi Olayeye</title>
+  
+</head>
+<body>
+  <!-- navbar -->
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top p-1">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Oluwaseyi Olayeye</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a id="about-me" class="nav-link" href="../index.html">About</a>
+          </li>
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link " href="/topics">Toolkit</a> -->
+          <!-- </li> -->
+          <li class="nav-item">
+            <a class="nav-link " href="../data_portfolio.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/music">Music</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:ayo.olayeye@outlook.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="github" href="https://github.com/aolayeye" target="_blank">
+              <img src="https://img.icons8.com/fluency/48/000000/github.png" alt="github"></a>  
+            </li>
+            <li class="nav-item">
+              <a class="linkedin" href="https://www.linkedin.com/in/aolayeye/" target="_blank">
+              <img src="https://img.icons8.com/fluency/48/000000/linkedin.png" alt="LinkedIn"></a> 
+            </li>
+        </ul>
+    </div>
+    </div>
+  </nav>
+  <script>
+  if (document.location.hash==='#about'){
+      document.querySelector('#about-me').classList.add('active');
+    }
+  </script>
+  <!-- header -->
+  <div class="container">
+    <div class="jumbotron text-center py-2 my-2">
+      <h3>Weather Data Analysis</h3>
+      <p class="lead my-0"><strong>Comparing Weather Data For Two Months</strong><p>
+      <p class="my-0"><em></em></p>
+    </div>
+  </div><!-- /header -->
+
+  
+<div class="container">
+  <p class="lead mt-3">The Surf_Up analysis seeks to analyze weather data for several years to determine if establishing a surfing business in Oahu is viable. 
+    In this analysis, we would utilize Jupyter notebook, SQLite database, and VSCode, where we will create our flask application to visualize the results of our analysis. 
+    In the second part of our analysis, we will produce queries that show summary statistics for weather parameters for June and December for multiple years. 
+    In the end, our analysis will show which months of the year and potentially which locations in Oahu are the best for opening a surfing and ice-cream business.</p>
+  <p>
+    In the date range specified (August 2016 to October 2017), there were 9 active stations, the most active station with a count of 2272 records, 
+    recorded a maximum temperature of 85.0, a minumum temperature of 54.0, and an average temperature of 71.7. 
+    A histogram plot shows that the most ocurring temperature was around 76.0. 
+    One trend we can observe based on the precipitation plot is that some months have higher amounts of precipitation than others. 
+    This plot provides insights around months where we would expect precipitation to be less and thus be a a good time for the surfing and ice-cream business.
+  </p>
+
+  <img src="Images/Precipitation_2016_2017.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <img src="Images/Temperature_Top_Station_2016_2017.png" class="img-fluid" alt="Scraping Mars Screenshot">
+
+  <p>
+    Our temperarture summary statistics show that June typically has a higher mean temperature at 74.9 compared to December at 71.0.
+Where 50% of the temperatures recorded for June were above 75.0, median temperature for December was 71.0
+June has a minimum temperature of 64.0 while December has a minimum temperature of 56.0 
+  </p>
+  <img src="Images/June_Temps_Summary_Stats.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <img src="Images/December_Temps_Summary_Stats.png" class="img-fluid" alt="Scraping Mars Screenshot">
+
+  <p>
+    Interpreting the June and December Temperature Results.
+    Using a T-Test, we can detrmine if the mean temperature values are different for the two months. To do so, we have to define our Null and Alternate Hypothesis.
+
+Null Hypothesis: µjune = µdecember (the means of both populations are equal)
+Alternate Hypothesis: µjune ≠ µdecember (the means of both populations are not equal)
+It is Important to note, we are specifying that the population does not have equal variance passing along False for the equal_var parameter. 
+We know this because both samples were taken from populations (june and december) with different standard deviations.
+
+Our T-Test show: P-Value:[4.19352984e-187] T-Statistic:[31.35503692] We have a very small P-value to reject the Null Hypothesis. 
+This means even though the standard deviations between our June and December are similar (3.257417, 3.745920),
+the difference in the population mean is statistically significant to consider the month of June and December different in terms of temperature.
+  </p>
+
+  <p>
+    Summary
+    Additional Query 1
+Our additional query 1 provides summary statistics for June and December for precipitation
+  </p>
+
+  <img src="Images/June_Prcp_Summary_Stats.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <img src="Images/December_Prcp_Summary_Stats.png" class="img-fluid" alt="Scraping Mars Screenshot">
+
+
+  <p>
+    Interpreting the June and December Precipitation Results
+Using a T-Test, we can detrmine if the mean precipitation values are different for the two months. 
+To do so, we have to define our Null and Alternate Hypothesis.
+
+Null Hypothesis: µjune = µdecember (the means of both populations are equal)
+Alternate Hypothesis: µjune ≠ µdecember (the means of both populations are not equal)
+It is Important to note, we are specifying that the population does not have equal variance passing along False for the equal_var parameter. 
+We know this because both samples were taken from populations (june and december) with different standard deviations.
+
+Our T-Test show: P-Value:[1.84738788e-06] T-Statistic:[-4.78090477] We have a very small P-value to reject the Null Hypothesis. 
+This means even though the standard deviations between our June and December are similar (0.325012, 0.524095), 
+the difference in the population mean is statistically significant to consider the month of June and December different in terms of precipitation.
+  </p>
+
+  <p>
+    Additional Query 2
+Our additional query 2 provides insight into the top 5 stations that recorded the highest temperature and 
+precipitation for the months of june and december
+  </p>
+
+  <img src="Images/Top_Stations_June_Prcp.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <img src="Images/Top_Stations_December_Prcp.png" class="img-fluid" alt="Scraping Mars Screenshot">
+
+  <img src="Images/Top_Stations_December_Temps.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <img src="Images/Top_Stations_June_Temps.png" class="img-fluid" alt="Scraping Mars Screenshot">
+  <p>
+    Additionlly, we can add the latitude and longitude details of the each station, and translate them to actual locations, 
+    our query can illuminate the locations with the highest temperatures and precipitation and thus inform where to setup our surfing business.
+  </p>
+</div><!-- /container -->
+
+
+  <!-- footer -->
+  <nav class="navbar navbar-dark bg-dark p-1 mt-5">
+    <p class="mx-auto py-0">©2021 Oluwaseyi Olayeye</p>
+  </nav>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
