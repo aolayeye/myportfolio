@@ -22,14 +22,38 @@
 
   <!-- <link rel="shortcut icon" href="/static/favicon.png"> -->
 
-  <title>Scraping Mars | Oluwaseyi Olayeye</title>
+  <title>Earthquake Map | Oluwaseyi Olayeye</title>
   
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+  <!--D3 cdn-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/earthquakes-style.css">
+
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+
+<!-- d3 JavaScript -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+<!-- Our CSS -->
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+
 </head>
 <body>
   <!-- navbar -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top p-1">
     <div class="container">
-      <a class="navbar-brand" href=".../index.html">Oluwaseyi Olayeye</a>
+      <a class="navbar-brand" href="../index.html">Oluwaseyi Olayeye</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -75,26 +99,21 @@
   <!-- header -->
   <div class="container">
     <div class="jumbotron text-center py-2 my-2">
-      <h3>Scraping Mars</h3>
-      <p class="lead my-0"><strong>Web App to Scrape Various Sites for Mars Data</strong><p>
-      <p class="my-0"><em></em></p>
+      <h3>Visualizing Earthquake Data with Leaflet</h3>
+      <p class="lead my-0"><strong>M2.5+ Earthquakes in the Past 7 Days</strong><p>
+      <p class="my-0"><em>Click on an earthquake for more info</em></p>
     </div>
   </div><!-- /header -->
 
   
-<div class="container">
-  <p class="lead mt-3">This web application scrapes <a href="https://mars.nasa.gov/news/" target="_blank">NASA Mars News</a>, 
-    <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars" target="_blank">JPL Mars Images</a>, 
-    <a href="https://space-facts.com/mars/" target="_blank">Space Facts</a>, 
-    <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars" target="_blank">USGS Astrogeology Science Center</a>, and the 
-    <a href="https://twitter.com/marswxreport?lang=en" target="_blank">Mars Weather</a> Twitter account to get data for the Mission to Mars and displays it in a single html page. 
-    Clicking the <em>Scrape New Data</em> will do exactly that and update the page. 
-    I've attached a screenshot below to show what it looks like. 
-    <a href="https://github.com/aolayeye/Mission-to-Mars" target="_blank">All of my code is here</a>.</p>
-  
-<img src="Images/Web_scraping_Mars.png" class="img-fluid" alt="Web_scraping_Mars">
-
-</div><!-- /container -->
+    <div id="mapid"></div>
+   
+    <!-- API key -->
+    <script type="text/javascript" src="static/js/config.js"></script>
+<!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/challenge_logic.js"></script>
+    <a class="btn btn-primary btn-sm" href="https://github.com/aolayeye/Mapping_Earthquakes" target="_blank" role="button">My Code</a>
+      
 
 
   <!-- footer -->
